@@ -46,6 +46,14 @@ public class Menu extends BasicGameState{
 				sbg.enterState(1); //enter Play.java
 			}
 		}
+		
+		//check if it's in the credits button
+		if ((xpos>350 && xpos<550) && (ypos>175 && ypos<250)) {
+			if (input.isMouseButtonDown(0)) { // is clicking mouse button? 0 = left click
+				sbg.enterState(2); //enter Credits.java
+			}
+		}
+		
 		//check if it's in the exit button
 		if ((xpos>350 && xpos<550) && (ypos>75 && ypos<150)) {
 			if (input.isMouseButtonDown(0)) { // is clicking mouse button? 0 = left click
