@@ -28,8 +28,7 @@ public class Credits extends BasicGameState{
 		//check if it's in the back button
 		if ((xpos>350 && xpos<550) && (ypos>75 && ypos<150)) {
 			if (input.isMouseButtonDown(0)) { // is clicking mouse button? 0 = left click
-				sbg.enterState(0); //enter Menu.java
-				//>ERROR< EXITS INSTEAD OF BACK
+				sbg.enterState(Game.menu); //enters Menu.Java >ERROR<
 			}
 		}
 	}

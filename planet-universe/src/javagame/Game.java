@@ -1,4 +1,4 @@
-//ep 15
+//possibly a control manager class
 package javagame;
 
 import org.newdawn.slick.*;
