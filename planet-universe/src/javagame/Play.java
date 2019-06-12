@@ -40,7 +40,6 @@ public class Play extends BasicGameState{
 				quit = false;
 			}
 			if (input.isKeyDown(Input.KEY_M)) {
-				System.out.println("B");
 				sbg.enterState(0);
 			}
 			if (input.isKeyDown(Input.KEY_Q)) {

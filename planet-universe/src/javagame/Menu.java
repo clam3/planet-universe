@@ -5,26 +5,30 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
 
-public class Menu extends BasicGameState{
+public class Menu {
 	
 	public String mouse = "No input yet!";
 	Image title, play, credits, exit;
 	int faceX = 100;
 	int faceY = 100;
 	
-	public Menu(int state) {
-		
+	public Menu() {
+		try {
+			title = new Image("res/menu-buttons/Planet-Universe.png");
+			play = new Image("res/menu-buttons/Play.png");
+			credits = new Image("res/menu-buttons/Credits.png");
+			exit = new Image("res/menu-buttons/Exit.png");
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
-		title = new Image("res/menu-buttons/Planet-Universe.png");
-		play = new Image("res/menu-buttons/Play.png");
-		credits = new Image("res/menu-buttons/Credits.png");
-		exit = new Image("res/menu-buttons/Exit.png");
 		
 	}
 	
-	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{ //actually draws stuff on the screen
+	public void render(GameContainer gc, Graphics g) throws SlickException{ //actually draws stuff on the screen
 		g.drawString(mouse, 50, 50); // text with mouse position
 		
 		// 200 x 75 png images
