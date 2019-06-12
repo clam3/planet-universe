@@ -13,6 +13,9 @@ public class PlanetUniverse implements Game {
 	private GameState gameState;
 	private Menu menu;
 	
+	/**
+	 * Notification that a game close has been requested.
+	 */
 	public boolean closeRequested() {
 		return true;
 	}
@@ -21,20 +24,27 @@ public class PlanetUniverse implements Game {
 		return "Planet Universe!";
 	}
 
-	// set inital state
+	/**
+	 * Initalise the game (load static resources). Called before
+	 * the game loop starts.
+	 */
 	public void init(GameContainer gc) throws SlickException {
 		gameState = GameState.LOADING_MENU;;
 		gc.setMinimumLogicUpdateInterval(1);
 		gc.setMaximumLogicUpdateInterval(1);
 		
 	}
-
+/**
+ * Update the game logic here.
+ */
 	public void update(GameContainer arg0, int arg1) throws SlickException {
 
 		
 	}
 	
-	// in the state of loading_menu but have to wait until first call of render 
+	/**
+	 * Render the game's screen here
+	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
 		if (gameState == GameState.MAIN_MENU) {
 			menu.render(gc, g);
