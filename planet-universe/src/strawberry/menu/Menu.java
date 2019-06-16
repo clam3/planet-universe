@@ -1,8 +1,11 @@
-package javagame;
+package strawberry.menu;
 
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
+
+import strawberry.state.GameState;
+import strawberry.state.PlanetUniverseState;
 
 
 public class Menu {
@@ -38,7 +41,7 @@ public class Menu {
 		g.drawImage(exit, 350, 450);
 	}
 	
-	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{ //updates the images on the screen, ie animation
+	public void update(GameContainer gc, int delta) throws SlickException{ //updates the images on the screen, ie animation
 		int xpos = Mouse.getX();
 		int ypos = Mouse.getY();
 		mouse = "Mouse position x: " + xpos + " y: " + ypos;
@@ -47,14 +50,16 @@ public class Menu {
 		//check if it's in the play button
 		if ((xpos>350 && xpos<550) && (ypos>275 && ypos<350)) {
 			if (input.isMouseButtonDown(0)) { // is clicking mouse button? 0 = left click
-				sbg.enterState(1); //enter Play.java
+				//sbg.enterState(1); //enter Play.java
+				PlanetUniverseState.setGameState(GameState.LEVEL_TRANSITION);
 			}
 		}
 		
 		//check if it's in the credits button
 		if ((xpos>350 && xpos<550) && (ypos>175 && ypos<250)) {
 			if (input.isMouseButtonDown(0)) { // is clicking mouse button? 0 = left click
-				sbg.enterState(2); //enter Credits.java
+				//sbg.enterState(2); //enter Credits.java
+				PlanetUniverseState.setGameState(GameState.LOADING_CREDIT_MENU);
 			}
 		}
 		

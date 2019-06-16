@@ -7,11 +7,15 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+import strawberry.menu.Credits;
+import strawberry.menu.Menu;
+import strawberry.state.GameState;
+import strawberry.state.PlanetUniverseState;
+
 public class PlanetUniverse implements Game {
 	
-	
-	private GameState gameState;
 	private Menu menu;
+	private Credits credits;
 	
 	/**
 	 * Notification that a game close has been requested.
@@ -29,7 +33,7 @@ public class PlanetUniverse implements Game {
 	 * the game loop starts.
 	 */
 	public void init(GameContainer gc) throws SlickException {
-		gameState = GameState.LOADING_MENU;;
+		PlanetUniverseState.setGameState(GameState.LOADING_MENU);
 		gc.setMinimumLogicUpdateInterval(1);
 		gc.setMaximumLogicUpdateInterval(1);
 		
@@ -37,8 +41,12 @@ public class PlanetUniverse implements Game {
 /**
  * Update the game logic here.
  */
-	public void update(GameContainer arg0, int arg1) throws SlickException {
-
+	public void update(GameContainer gc, int delta) throws SlickException {
+		if (PlanetUniverseState.getGameState() == GameState.MAIN_MENU) {
+			menu.update(gc, delta);
+		} else if (PlanetUniverseState.getGameState() == GameState.CREDIT_MENU) {
+			credits.update(gc, delta);
+		}
 		
 	}
 	
@@ -46,11 +54,21 @@ public class PlanetUniverse implements Game {
 	 * Render the game's screen here
 	 */
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		if (gameState == GameState.MAIN_MENU) {
+		if (PlanetUniverseState.getGameState() == GameState.MAIN_MENU) {
 			menu.render(gc, g);
-		} else if (gameState == GameState.LOADING_MENU ) {
+			
+		} else if (PlanetUniverseState.getGameState() == GameState.LOADING_MENU ) {
 			menu = new Menu();
-			gameState = GameState.MAIN_MENU;
+			PlanetUniverseState.setGameState(GameState.MAIN_MENU);
+			
+		} else if (PlanetUniverseState.getGameState() == GameState.LOADING_CREDIT_MENU ) {
+			credits = new Credits();
+			menu = null;
+			PlanetUniverseState.setGameState(GameState.CREDIT_MENU);
+			
+		} else if (PlanetUniverseState.getGameState() == GameState.CREDIT_MENU ) {
+			credits.render(gc, g);
+			PlanetUniverseState.setGameState(GameState.CREDIT_MENU);
 		}
 	}
 
