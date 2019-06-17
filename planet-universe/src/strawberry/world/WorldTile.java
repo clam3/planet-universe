@@ -4,7 +4,7 @@ import org.newdawn.slick.Graphics;
 
 public abstract class WorldTile {
 	
-	public int worldTileSize = 128; //how many pixels in each tile :D
+	public static int worldTileSize = 128; //how many pixels in each tile :D
 	public int xPos;
 	public int yPos;
 	
@@ -27,5 +27,9 @@ public abstract class WorldTile {
 		// only want to store the ones that aren't visible and are generated
 	}
 	
+	public static int worldTileHash(int xPos, int yPos) {
+		int worldTileHash = xPos * 100 + yPos;
+		return worldTileHash;
+	}
 	public abstract void drawWorldTile(Graphics g);
 }

@@ -5,8 +5,8 @@ import org.newdawn.slick.Graphics;
 
 public abstract class TileLayer {
 		private float windowScale;
-		private int layerWidth;
-		private int layerHeight;
+		public int layerWidth;
+		public int layerHeight;
 		
 		public TileLayer(float windowScale, GameContainer gc) {
 			this.windowScale = windowScale;
@@ -16,3 +16,5 @@ public abstract class TileLayer {
 		
 		public abstract void draw(Graphics g, float xPos, float yPos);
 }
+
+//beep beep oink oink im a robot yeet 
