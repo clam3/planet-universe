@@ -30,11 +30,9 @@ public class WorldTileLayer extends TileLayer {
 			WorldTile worldTile = worldTileMapIterator.next();
 			if (!worldTile.shouldStorePos(xPos, yPos, layerWidth, layerHeight)){ //remove if shouldn't keep the pos
 				worldTileMapIterator.remove();
-				if (worldTileMap.containsKey(worldTile.hashCode())){ 
-					throw new IllegalStateException();
-				}
 			}
 		}
+		
 		int worldFrameRenderCallRate = 2;
 		for(int worldTilexPosition = (int)(xPos/WorldTile.worldTileSize)-2; worldTilexPosition <= (xPos + layerWidth + 2)/WorldTile.worldTileSize; worldTilexPosition++){
 			for(int worldTileyPosition = (int)(yPos/WorldTile.worldTileSize)-2; worldTileyPosition <= (yPos + layerHeight + 2)/WorldTile.worldTileSize; worldTileyPosition++){
@@ -48,7 +46,7 @@ public class WorldTileLayer extends TileLayer {
 					}
 				}
 			}
-}
+		}
 	}
 
 	private WorldTile createWorldTile(int worldTilexPosition, int worldTileyPosition) {
