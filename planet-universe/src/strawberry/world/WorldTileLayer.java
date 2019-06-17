@@ -25,13 +25,12 @@ public class WorldTileLayer extends TileLayer {
 	}
 	
 	private void update(float xPos, float yPos, boolean storedTiles) {
-		Iterator<WorldTile> worldTileMapIterator = worldTileMap.values().iterator();
-		while(worldTileMapIterator.hasNext())
-		{
+		Iterator<WorldTile> worldTileMapIterator = worldTileMap.values().iterator(); //collection view of values in the map
+		while(worldTileMapIterator.hasNext()) {
 			WorldTile worldTile = worldTileMapIterator.next();
-			if (!worldTile.shouldStorePos(xPos, yPos, layerWidth, layerHeight)){
+			if (!worldTile.shouldStorePos(xPos, yPos, layerWidth, layerHeight)){ //remove if shouldn't keep the pos
 				worldTileMapIterator.remove();
-				if (worldTileMap.containsKey(worldTile.hashCode())){
+				if (worldTileMap.containsKey(worldTile.hashCode())){ 
 					throw new IllegalStateException();
 				}
 			}
