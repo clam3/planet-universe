@@ -7,6 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+import strawberry.level.Level;
 import strawberry.menu.Credits;
 import strawberry.menu.Menu;
 import strawberry.state.GameState;
@@ -16,6 +17,7 @@ public class PlanetUniverse implements Game {
 	
 	private Menu menu;
 	private Credits credits;
+	private Level level;
 	
 	/**
 	 * Notification that a game close has been requested.
@@ -46,6 +48,9 @@ public class PlanetUniverse implements Game {
 			menu.update(gc, delta);
 		} else if (PlanetUniverseState.getGameState() == GameState.CREDIT_MENU) {
 			credits.update(gc, delta);
+		} else if (PlanetUniverseState.getGameState() == GameState.IN_UNIVERSE) {
+			float nextTick = delta / 1000.0f; //miliseconds :D
+			// cry here
 		}
 		
 	}
@@ -69,6 +74,14 @@ public class PlanetUniverse implements Game {
 		} else if (PlanetUniverseState.getGameState() == GameState.CREDIT_MENU ) {
 			credits.render(gc, g);
 			PlanetUniverseState.setGameState(GameState.CREDIT_MENU);
+		} else if (PlanetUniverseState.getGameState() == GameState.LEVEL_TRANSITION) {
+			level = new Level(gc);
+			level.load(gc);
+			PlanetUniverseState.setGameState(GameState.IN_UNIVERSE);
+			
+		} else if (PlanetUniverseState.getGameState() == GameState.IN_UNIVERSE) {
+			level.render(gc, g);
+			
 		}
 	}
 

@@ -14,12 +14,12 @@ public abstract class WorldTile {
 	}
 	
 	public boolean shouldStorePos(float xPos, float yPos, float width, float height) {
-		int scaleTileX = this.xPos * this.worldTileSize;
-		int scaleTileY = this.yPos * this.worldTileSize;
-		float scaleTileDistanceX = Math.max(xPos - (scaleTileX + this.worldTileSize), scaleTileX - (xPos + width)); //scale it
-		float scaleTileDistanceY = Math.max(yPos - (scaleTileY + this.worldTileSize), scaleTileY - (yPos + height));
+		int scaleTileX = this.xPos * WorldTile.worldTileSize;
+		int scaleTileY = this.yPos * WorldTile.worldTileSize;
+		float scaleTileDistanceX = Math.max(xPos - (scaleTileX + WorldTile.worldTileSize), scaleTileX - (xPos + width)); //scale it
+		float scaleTileDistanceY = Math.max(yPos - (scaleTileY + WorldTile.worldTileSize), scaleTileY - (yPos + height));
 		boolean shouldStorePos = false;
-		if (scaleTileDistanceX <= this.worldTileSize * 2 && scaleTileDistanceY <= this.worldTileSize * 2) { 
+		if (scaleTileDistanceX <= WorldTile.worldTileSize * 2 && scaleTileDistanceY <= WorldTile.worldTileSize * 2) { 
 			shouldStorePos = true;
 		}
 		return shouldStorePos;

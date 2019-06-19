@@ -17,4 +17,6 @@ public class Star {
 	public void draw(Graphics g) {
 		g.drawImage(this.starImg, starPosition.getxTilePos(), starPosition.getyTilePos());
 	}
+
+
 }
