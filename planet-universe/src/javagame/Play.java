@@ -3,6 +3,10 @@ package javagame;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+/**
+ * Class not needed anymore
+ *
+ */
 public class Play extends BasicGameState{
 	boolean quit = false;
 	

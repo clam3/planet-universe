@@ -10,7 +10,6 @@ import org.newdawn.slick.Graphics;
 /**
  * basis for all the space layers :D eventually going to be stars, gases, planets, or whatever
  * they all get rendered the same way :D
- * @author chris
  *
  */
 public abstract class WorldTileLayer extends TileLayer {

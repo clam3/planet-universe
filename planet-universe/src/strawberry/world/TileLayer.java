@@ -5,7 +5,6 @@ import org.newdawn.slick.Graphics;
 
 /**
  * control basic things in the layer
- * @author chris
  *
  */
 
@@ -22,5 +21,3 @@ public abstract class TileLayer {
 		
 		public abstract void draw(Graphics g, float xPos, float yPos);
 }
-
-//beep beep oink oink im a robot yeet 

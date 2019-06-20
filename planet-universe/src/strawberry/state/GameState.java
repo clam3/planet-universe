@@ -1,5 +1,9 @@
 package strawberry.state;
 
+/**
+ * Group of constants (possible states of the game)
+ *
+ */
 public enum GameState {
 	LOADING_MENU,
 	MAIN_MENU,

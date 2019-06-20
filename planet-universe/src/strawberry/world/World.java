@@ -14,6 +14,6 @@ public class World {
 	}
 	
 	public void render(GameContainer gc, Graphics g) {
-		starCanvas.draw(g, 118, 54);
+		starCanvas.draw(g, 118, 54); //arbitary numbers
 	}
 }

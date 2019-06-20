@@ -1,6 +1,10 @@
 package strawberry.star;
 
 import org.newdawn.slick.Graphics;
+
+/**
+ * A Star is an image with an x and y position that is stored as a Vector Tile
+ */
 import org.newdawn.slick.Image;
 
 import strawberry.util.VectorTile;

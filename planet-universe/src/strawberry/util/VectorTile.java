@@ -1,5 +1,9 @@
 package strawberry.util;
 
+/**
+ * Stores the position of an object. Lets you do things to it.
+ *
+ */
 public class VectorTile {
 	
 	private float xTilePos;
