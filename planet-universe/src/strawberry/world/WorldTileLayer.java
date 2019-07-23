@@ -1,4 +1,4 @@
-package strawberry.world;
+ package strawberry.world;
 
 import java.util.HashMap;
 import java.util.Iterator;

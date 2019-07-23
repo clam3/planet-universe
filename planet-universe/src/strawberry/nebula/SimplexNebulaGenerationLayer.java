@@ -31,7 +31,7 @@ public class SimplexNebulaGenerationLayer extends WorldTileLayer {
 	 */
 	public SimplexNebulaGenerationLayer(float windowScale, GameContainer gc) {
 		super(windowScale, gc);
-		fractalFunctor = new SimplexFractalGenerator()
+		fractalFunctor = new SimplexFractalGenerator(new SimplexFractalNoiseGenerator(1), 8, 0.6f);
 		simplexNoiseGradientBuffer = new ImageBuffer(WorldTile.worldTileSize, WorldTile.worldTileSize);
 		try {
 			Image nebulaGrad = new Image("res/gradients/purple.png");

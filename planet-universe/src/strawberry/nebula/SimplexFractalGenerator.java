@@ -8,15 +8,15 @@ package strawberry.nebula;
  *
  * https://en.wikipedia.org/wiki/Fractal_landscape
  */
-public class SimplexFractalGenerator implements FractalFunctor{
+public class SimplexFractalGenerator implements FractalRandomizedSeed {
 	
 	public int fractalOctave;
 	public float fractalOpacity;
-	public SimplexFractalGenerator randFractal;
+	public FractalRandomizedSeed randFractal;
 	
-	public SimplexFractalGenerator(SimplexFractalGenerator fractal, int fractalOctave, float fractalOpacity) {
+	public SimplexFractalGenerator(SimplexFractalNoiseGenerator simplexFractalNoiseGenerator, int fractalOctave, float fractalOpacity) {
 		System.out.println("i liek trains");
-		this.randFractal = fractal;
+		this.randFractal = simplexFractalNoiseGenerator;
 		this.fractalOctave = fractalOctave;
 		this.fractalOpacity = fractalOpacity;
 		
@@ -43,8 +43,10 @@ public class SimplexFractalGenerator implements FractalFunctor{
 		
 	}
 	
-	public void setFractalRand(int randomFractalValue) {
-		this.randFractal.setFractalRand(randomFractalValue);
+	@Override
+	public void setFractalRandomizedSeed(int randomizedFractalSeed) {
+		// TODO Auto-generated method stub
+		this.randFractal.setFractalRandomizedSeed(randomizedFractalSeed);
 	}
 
 }
