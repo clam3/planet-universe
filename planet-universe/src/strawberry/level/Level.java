@@ -16,11 +16,6 @@ public class Level {
 	
 	public void load(GameContainer gc) {
 		this.starUniverse = new World(gc);
-		
-	}
-	
-	public void updateWorld(float nextTick) {
-		//starUniverse.update(nextTick);
 	}
 	
 	public void render(GameContainer gc, Graphics g) {

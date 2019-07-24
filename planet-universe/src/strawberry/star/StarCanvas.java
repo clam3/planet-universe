@@ -22,7 +22,7 @@ public class StarCanvas {
 		
 		this.starLayerList.add(new StarTileLayer(0.01f ,gc)); //v far layer
 		this.starLayerList.add(new StarTileLayer(0.02f ,gc));
-		this.starLayerList.add(new SimplexNebulaGenerationLayer(0.04f, gc));
+		this.starLayerList.add(new SimplexNebulaGenerationLayer(2.0f, gc));
 		this.starLayerList.add(new StarTileLayer(0.03f ,gc));
 		this.starLayerList.add(new StarTileLayer(0.12f ,gc));
 	}

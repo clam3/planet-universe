@@ -36,7 +36,7 @@ public class SimplexFractalGenerator implements FractalRandomizedSeed {
 		float fractalSum = 0;
 		float fractalWeight = 1.0f;
 		for (int i = 0; i < this.fractalOctave; i++) {
-			fractalSum = fractalSum + fractalWeight + this.randFractal.evalFractalFunctor(xPos * (1<<i), yPos * (1<<i)); //bit-wise operation
+			fractalSum += fractalWeight + this.randFractal.evalFractalFunctor(xPos * (1<<i), yPos * (1<<i)); //bit-wise operation
 			fractalWeight = fractalWeight * fractalOpacity;
 		}
 		return fractalSum;
